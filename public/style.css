@@ -1,0 +1,127 @@
+/* Overall background and full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-image: url('img/img.jpg'); /* background image path */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Chat container */
+.col-md-6 {
+  position: relative; /* Changed to relative */
+  height: 100vh; /* Full viewport height */
+  max-width: 600px;
+  margin: 0 auto; /* Centered in the viewport */
+  display: flex;
+  flex-direction: column; /* Children stacked vertically */
+}
+
+/* Header style */
+.page-header {
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+  padding: 20px;
+  background: #007bff; /* Bootstrap primary color */
+}
+
+/* Chat messages styles */
+#messages {
+  overflow-y: auto;
+  flex-grow: 1; /* Messages container grows to fill available space */
+  padding: 10px;
+}
+
+/* Individual chat message */
+.chat_message {
+  max-width: 70%;
+  word-wrap: break-word;
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative; /* Needed for absolute positioning of buttons */
+  align-self: flex-end; /* Aligns user messages to the right */
+}
+
+/* User's message bubble */
+.user_output {
+  background-color: #007bff;
+  color: white;
+  border-radius: 20px;
+  align-self: flex-end; /* Aligns user messages to the right */
+  margin-left: auto; /* Push the bubble to the right */
+}
+
+/* Bot's message bubble */
+.chatbot_output {
+  background-color: #f0f0f0;
+  color: black;
+  border-radius: 20px;
+  align-self: flex-start; /* Aligns bot messages to the left */
+}
+
+
+.user_output .fa-thumbs-up,
+.user_output .fa-thumbs-down {
+  right: -30px; /* Position icons to the right of user messages */
+}
+
+.chatbot_output .fa-thumbs-up,
+.chatbot_output .fa-thumbs-down {
+  left: -30px; /* Position icons to the left of bot messages */
+}
+
+.fa-thumbs-up {
+  color: #28a745; /* Green color for thumbs up */
+}
+
+.fa-thumbs-down {
+  color: #dc3545; /* Red color for thumbs down */
+}
+
+/* Input and Send button */
+.input-group {
+  padding: 15px;
+}
+
+.form-control {
+  border-top-left-radius: 15px !important; /* Important to override Bootstrap styles */
+  border-bottom-left-radius: 15px !important;
+}
+
+.btn-primary {
+  border-top-right-radius: 15px; /* Rounded border on the button */
+  border-bottom-right-radius: 15px;
+}
+
+/* Loading button state */
+.loading-button {
+  padding: 0 15px;
+  vertical-align: middle;
+  animation: loading-animation 2s infinite linear;
+}
+
+
+/* Simple loading animation */
+@keyframes loading-animation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.thumbs-icons i {
+  margin-left: 5px;
+  font-size: 1.2rem; /* Larger icons */
+}
+
+.liked, .fa-thumbs-up:hover {
+  color: #155524; /* Bootstrap success color for thumbs up */
+}
+
+.disliked, .fa-thumbs-down:hover {
+  color: #5e181f; /* Bootstrap danger color for thumbs down */
+}
